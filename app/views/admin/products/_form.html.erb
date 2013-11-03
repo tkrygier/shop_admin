@@ -1,0 +1,32 @@
+<%= form_for [:admin, @product] do |f| %>
+    <% if @product.errors.any? %>
+        <div id="errorExplanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited
+            this post from being saved:</h2>
+          <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :nazwa %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :opis %><br>
+      <%= f.text_area :description %>
+    </p>
+    <p>
+      <%= f.label :cena %><br>
+      <%= f.text_field :price %>
+    </p>
+    <p>
+      <%= f.label :kategoria %><br>
+      <%= f.select :category_id, Category.all.map{|category| [category.name.to_s, category.id]} %><br>
+
+    </p>
+    <%= f.submit "OK" %>
+    </p>
+<% end %>

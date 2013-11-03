@@ -1,0 +1,9 @@
+<h1>Prosty sklep</h1>
+
+<p>
+  Wybierz kategorię:
+  <% @categories.each do |c| %>
+      <b><%= link_to c.name, c %></b>
+  <% end %>
+
+</p>

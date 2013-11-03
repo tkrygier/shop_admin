@@ -1,0 +1,19 @@
+<%= form_for [:admin, @category] do |f| %>
+    <% if @category.errors.any? %>
+        <div id="errorExplanation">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited
+            this post from being saved:</h2>
+          <ul>
+            <% @category.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :nazwa %><br>
+      <%= f.text_field :name %>
+    </p>
+      <%= f.submit "OK" %>
+    </p>
+<% end %>

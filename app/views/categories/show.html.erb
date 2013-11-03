@@ -1,0 +1,33 @@
+<h1>Prosty sklep</h1>
+
+<p>
+  Wybierz kategorię:
+  <% @categories.each do |c| %>
+      <% if c != @category %>
+        <b><%= link_to c.name, c %></b>
+      <% else %>
+        <b><%= c.name %></b>
+      <% end %>
+  <% end %>
+</p>
+
+<hr size="3" color="black" />
+
+<h3>Produkty</h3>
+
+<table border="3">
+  <tr>
+    <th>Nazwa</th>
+    <th>Cena</th>
+  </tr>
+
+  <% @products_cat.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+		<td>
+			<%= link_to "Więcej", product_path(product) %>
+		</td>
+	  </tr>
+  <% end %>
+</table><br>

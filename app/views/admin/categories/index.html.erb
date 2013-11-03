@@ -1,0 +1,11 @@
+<h1>Prosty sklep</h1>
+
+<p>
+  Wybierz kategorię:
+  <% @categories.each do |c| %>
+      <b><%= link_to c.name, c %></b>
+  <% end %>
+
+</p>
+<%= link_to "Nowa kategoria", new_admin_category_path %><br>
+<%= link_to "Nowy produkt", new_admin_product_path %>

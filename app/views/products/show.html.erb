@@ -1,0 +1,21 @@
+<p>
+  <strong>Nazwa:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Opis:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Cena:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Kategoria:</strong>
+  <%= Category.all.find(@product.category_id).name.to_s %>
+</p>
+
+<%= link_to 'Powrót', category_path(@product.category_id) %>
